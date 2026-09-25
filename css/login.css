@@ -1,6 +1,6 @@
-
 .login {
     width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,21 +9,26 @@
 .login-container {
     width: 100%;
     max-width: 440px;
-    min-height: 440px; 
+    min-height: 440px;
+
     padding: 60px 50px;
-    border: 1px solid #000; 
+
+    border: 1px solid #000;
     background-color: var(--primary-color);
     box-shadow: 0px 4px 4px 0px #00000040;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    box-sizing: border-box;
 }
 
 .logo-login {
     width: 130px;
     height: 130px;
-    background-color: var(--logo-bg);
+    background-color: var(--color-band);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -61,8 +66,8 @@
 
 .input-group input {
     width: 100%;
-    padding: 15px; 
-    border: 1px solid var(--logo-color); 
+    padding: 15px;
+    border: 1px solid var(--logo-color);
     font-family: inherit;
     font-size: 14px;
     outline: none;
@@ -73,7 +78,7 @@
     width: 100%;
     padding: 15px;
     margin-top: 5px;
-    background-color: var(--logo-color);
+    background-color: var(--color-band);
     color: var(--primary-color);
     font-family: inherit;
     font-size: 12px;
@@ -86,4 +91,21 @@
 
 .login-form button:hover {
     background-color: #333;
+}
+
+.message {
+    display: none;
+}
+
+.message p {
+    text-align: center;
+    color: red;
+    font-size: 12px;
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        padding: 10px;
+        max-width: 90%;
+    }
 }

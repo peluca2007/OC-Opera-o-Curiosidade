@@ -8,59 +8,109 @@
   <link rel="stylesheet" href="../css/dashboard.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
   <div class="dashboard">
-
     <header class="header">
       <nav class="search-bar">
-     
-        <div class="nav-right">
-          <a href="#">Perfil</a>
-          |
-          <a href="#">Sair</a>
+
+        <div class="search">
+          <input type="text" placeholder="Pesquisar...">
         </div>
+
+        <div class="nav-right">
+          <a href="#" class="user-icon">
+            <i class="fas fa-user"></i>
+          </a>
+
+          <a href="#" class="user-name">nome</a>
+
+          <span>|</span>
+
+          <a href="login.html" class="logout">Sair</a>
+        </div>
+
       </nav>
     </header>
-
     <section class="sidebar">
+
       <div class="logo">
         <h1>OC</h1>
-        <p>Operação Curiosidade</p>
+        <p class="logo-text">Operação Curiosidade</p>
       </div>
+
       <ul class="sidebar-menu">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Perfil</a></li>
-        <li><a href="#">Configurações</a></li>
-        <li><a href="#">Sair</a></li>
+
+        <li class="home">
+          <a href="#">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Home</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fas fa-user-plus"></i>
+            <span class="menu-text">Cadastro</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Relatórios</span>
+          </a>
+        </li>
+
+      </ul>
+
     </section>
 
     <main class="main-content">
       <div class="registration">
-        <div class="card-registration" id="total-registrations">
-        
+        <div class="card-registration" id="total-registrations" style="grid-area: total-registrations;">
+          <h2>Total de Cadastros</h2>
+          <p>0</p>
         </div>
 
-        <div class="card-registration" id="registrations-month">
-        
+        <div class="card-registration" id="registrations-month" style="grid-area: registrations-month;">
+          <h2>Cadastros do Mês</h2>
+          <p>0</p>
         </div>
 
-        <div class="card-registration" id="registrations-peding">
-        
+        <div class="card-registration" id="registrations-peding" style="grid-area: registrations-peding;">
+          <h2>Cadastros Pendentes</h2>
+          <p>0</p>
         </div>
-        
+
+        <div class="card-registration" id="last-registrations" style="grid-area: last-registrations;">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>João Silva</td>
+                <td>joao.silva@example.com</td>
+                <td>Pendente</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
-      <div class="last-registrations">
-        
-      </div>
-
     </main>
 
   </div>
 
+  <script src="../js/dashboard.js"></script>
 </body>
 
 </html>
