@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../customers/customers.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+
+  <div class="estrutura">
+    <header class="header">
+      <nav class="search-bar">
+        <div class="search">
+          <input type="search" placeholder="Pesquisar...">
+        </div>
+        <div class="nav-right">
+          <a href="#" class="user-icon">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="#" class="user-name">Luciano Henrique</a>
+          <span>|</span>
+          <a href="../login/login.html" class="logout">Sair</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="sidebar">
+      <div class="logo">
+        <h1>OC</h1>
+        <p class="logo-text">Operação Curiosidade</p>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="home">
+          <a href="../dashboard/dashboard.html">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="../customers/customers.html">
+            <i class="fas fa-user-plus"></i>
+            <span class="menu-text">Cadastro</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Relatórios</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <main class="clients-register">
+      <div class="main-header">
+        <h2>Cadastros</h2>
+        <input class="btn-new" type="button" value="Novo Cadastro" onclick="window.location.href='../register/register.html'">
+      </div>
+      
+      <div class="card-registration" id="clients-registrations">
+        <table>
+          <thead>
+            <tr>
+              <th>NOME</th>
+              <th>E-MAIL</th>
+              <th class="align-right">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Stephanie Nichols</td>
+              <td>stephanienichols@gmail.com</td>
+              <td class="align-right">Ativo</td>
+            </tr>
+            <tr>
+              <td>Jeffrey Kane</td>
+              <td>jeffrey_kane@yahoo.com</td>
+              <td class="align-right">Ativo</td>
+            </tr>
+            <tr>
+              <td>Darin Miller</td>
+              <td>darinmiller01@gmail.com</td>
+              <td class="align-right">Ativo</td>
+            </tr>
+            <tr>
+              <td>Andrew Stuart</td>
+              <td>andrewstuart@outlook.com</td>
+              <td class="align-right">Ativo</td>
+            </tr>
+            <tr>
+              <td>Valerie Aguilar</td>
+              <td>valerie_aguilar@gmail.com</td>
+              <td class="align-right status-inactive">Inativo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+<script src="../customers/customers.js"></script>
+</body>
+</html>

@@ -15,5 +15,5 @@ function login() {
     return;
   }
 
-  location.href = 'dashboard.html';
+  location.href = '../dashboard/dashboard.html';
 }
