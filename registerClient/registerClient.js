@@ -63,7 +63,8 @@ function registerClient() {
     othersInfo: othersInfoClient,
     interests: interestsClient,
     feelings: feelingsClient,
-    values: valuesClient
+    values: valuesClient,
+    createdAt: new Date().toISOString()
   };
 
   listerClient.push(newClient);
@@ -76,7 +77,6 @@ function registerClient() {
 
   successMsgElement.style.display = "block";
 
-  // Limpa os campos do formulário
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
   document.getElementById("dateOfBirth").value = "";

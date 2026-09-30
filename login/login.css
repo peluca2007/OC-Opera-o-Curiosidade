@@ -1,111 +1,138 @@
 .login {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 20px; 
 }
 
 .login-container {
-    width: 100%;
-    max-width: 440px;
-    min-height: 440px;
+  width: 100%;
+  max-width: 400px; 
+  padding: 40px;
+  
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
-    padding: 60px 50px;
-
-    border: 1px solid #000;
-    background-color: var(--primary-color);
-    box-shadow: 0px 4px 4px 0px #00000040;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-login {
-    width: 130px;
-    height: 130px;
-    background-color: var(--color-band);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .logo-login h1 {
-    font-size: 34px;
-    font-weight: 900;
-    color: var(--logo-color);
-    line-height: 1;
-    margin-bottom: 2px;
+  width: 72px;
+  height: 72px;
+  background-color: var(--color-band);
+  color: var(--primary-color); 
+  border-radius: 18px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 12px; 
 }
 
+
 .logo-login p {
-    font-size: 11px;
-    color: var(--logo-color);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--logo-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
 }
 
 .login-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .input-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .input-group input {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid var(--logo-color);
-    font-family: inherit;
-    font-size: 14px;
-    outline: none;
-    background-color: transparent;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--logo-color);
+  background-color: var(--primary-color);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+
+.input-group input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--primary-color) inset !important;
+  -webkit-text-fill-color: var(--logo-color) !important;
+}
+
+.input-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-group input:focus {
+  border-color: var(--color-band);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .login-form button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 5px;
-    background-color: var(--color-band);
-    color: var(--primary-color);
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.2s ease;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  background-color: var(--color-band);
+  color: var(--primary-color);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .login-form button:hover {
-    background-color: #333;
+  background-color: var(--color-band-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
 .message {
-    display: none;
+  display: none;
 }
 
 .message p {
-    text-align: center;
-    color: red;
-    font-size: 12px;
+  text-align: center;
+  color: #DC2626;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 @media (max-width: 500px) {
-    .login-container {
-        padding: 10px;
-        max-width: 90%;
-    }
+  .login-container {
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
 }
