@@ -1,7 +1,7 @@
 .structure {
 	height: 100vh;
 	display: grid;
-	grid-template-columns: 260px 1fr;
+	grid-template-columns: 260px minmax(0, 1fr);
 	grid-template-rows: 70px 1fr;
 	grid-template-areas:
 		"sidebar header"
@@ -14,11 +14,23 @@
 	border-bottom: 1px solid var(--border-color);
 	display: flex;
 	align-items: center;
+	min-width: 0;
+	gap: 16px;
+	padding: 0 30px;
 
 	.nav-right {
 		display: flex;
 		align-items: center;
 		gap: 15px;
+		flex-shrink: 0;
+		margin-left: auto;
+		white-space: nowrap;
+
+		.user-name {
+			max-width: 140px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 
 		a {
 			text-decoration: none;
@@ -131,7 +143,7 @@
 
 @media (max-width: 873px) {
 	.structure {
-		grid-template-columns: 60px 1fr;
+		grid-template-columns: 60px minmax(0, 1fr);
 	}
 
 	.sidebar {
@@ -182,9 +194,14 @@
 	}
 
 	.header {
+		padding: 0 12px;
+		gap: 8px;
+
+		.nav-right {
+			gap: 8px;
+		}
 
 		.user-name,
-		.logout,
 		.nav-right span {
 			display: none;
 		}

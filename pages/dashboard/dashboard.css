@@ -111,17 +111,6 @@
 @media (max-width: 873px) {
 
 
-  .header {
-
-    .user-name,
-    .logout,
-    .nav-right span {
-      display: none;
-    }
-
-
-  }
-
   .dashboard {
     grid-template-columns: auto 1fr;
   }

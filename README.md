@@ -69,7 +69,7 @@ em cada página; a lógica e os estilos compartilhados ficam em shared.
 4. **shared/ui/client-table.js**: renderClientTable recebe o tbody da página
    e os clientes. Cria células usando textContent, sem interpretar os dados como HTML.
 5. **shared/ui/search.js**: conecta os eventos do formulário e do modal às
-   funções acima. A pesquisa acontece com Enter ou com o botão Pesquisar.
+   funções acima. A pesquisa acontece ao pressionar Enter.
 6. **pages/clients/client-list.js**: exemplo pequeno de uma página que usa
    os módulos compartilhados.
 7. **pages/clients/client-form.js**: mantém a validação do cadastro e chama
