@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="../../shared/styles/base.css">
+  <link rel="stylesheet" href="../../shared/styles/layout.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <section class="login">
+    <div class="login-container">
+      <div class="logo-login">
+        <h1>OC</h1>
+        <p>Operação Curiosidade</p>
+      </div>
+
+      <form class="login-form">
+        <div class="input-group">
+          <input type="text" name="email" placeholder="Email" required id="email">
+        </div>
+
+        <div class="input-group">
+
+          <input type="password" name="password" placeholder="Senha" required id="password">
+
+        </div>
+
+        <button type="submit" >Entrar</button>
+
+        <div class="message" id="message" style="display: none;">
+          <p>Email ou senha incorretos. Tente novamente.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <script type="module" src="login.js"></script>
+</body>
+
+</html>

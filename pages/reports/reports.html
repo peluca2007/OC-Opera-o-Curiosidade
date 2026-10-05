@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios</title>
+  <link rel="stylesheet" href="../../shared/styles/base.css">
+  <link rel="stylesheet" href="../../shared/styles/layout.css">
+  <link rel="stylesheet" href="../../shared/styles/search.css">
+  <link rel="stylesheet" href="reports.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+  <div class="structure">
+    <header class="header">
+        <nav class="search-bar" aria-label="Pesquisa de clientes">
+          <div class="search">
+            <form id="search-form" role="search">
+              <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
+              <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
+              <button class="search-button" type="submit">Pesquisar</button>
+            </form>
+            <dialog id="search-dialog" aria-labelledby="search-title">
+              <div class="dialog-content">
+                <h2 id="search-title">Resultados da pesquisa</h2>
+                <div class="search-options">
+                  <label for="search-status">Status</label>
+                  <select id="search-status">
+                    <option value="all">Todos</option>
+                    <option value="active">Ativos</option>
+                    <option value="inactive">Inativos</option>
+                  </select>
+                </div>
+                <p id="search-summary" role="status" aria-live="polite"></p>
+                <div class="search-table-wrap">
+                  <table id="search-results">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome do cliente</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <button id="close-dialog" type="button">Fechar</button>
+              </div>
+            </dialog>
+          </div>
+        </nav>
+      </header>
+      <section class="sidebar">
+        <div class="logo">
+          <h1>OC</h1>
+          <p class="logo-text">Operação Curiosidade</p>
+        </div>
+
+        <ul class="sidebar-menu">
+          <li class="home">
+            <a href="../dashboard/dashboard.html">
+              <i class="fas fa-home"></i>
+              <span class="menu-text">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="../clients/client-list.html">
+              <i class="fas fa-user-plus"></i>
+              <span class="menu-text">Cadastro</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html">
+              <i class="fas fa-chart-line"></i>
+              <span class="menu-text">Relatórios</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <main class="reports-main">
+        <h1>Relatórios</h1>
+
+        <div class="reports-table-wrap">
+          <table class="reports-table">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col" class="report-total">Pessoas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="report-list.html?report=all">Lista de clientes</a></td>
+                <td class="report-total" id="count-all">0</td>
+              </tr>
+              <tr>
+                <td><a href="report-list.html?report=active">Lista de clientes ativos</a></td>
+                <td class="report-total" id="count-active">0</td>
+              </tr>
+              <tr>
+                <td><a href="report-list.html?report=inactive">Lista de clientes inativos</a></td>
+                <td class="report-total" id="count-inactive">0</td>
+              </tr>
+              <tr>
+                <td><a href="report-list.html?report=this-month">Lista de cadastros do mês</a></td>
+                <td class="report-total" id="count-this-month">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="report-note" role="status" hidden></p>
+      </main>
+  </div>
+
+  <script type="module" src="reports.js"></script>
+  <script type="module" src="../../shared/ui/search.js"></script>
+</body>
+
+</html>

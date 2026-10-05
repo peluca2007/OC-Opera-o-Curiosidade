@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="../../shared/styles/base.css">
+  <link rel="stylesheet" href="../../shared/styles/layout.css">
+  <link rel="stylesheet" href="../../shared/styles/search.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+  <div class="structure">
+    <header class="header">
+      <nav class="search-bar" aria-label="Pesquisa de clientes">
+          <div class="search">
+            <form id="search-form" role="search">
+              <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
+              <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
+              <button class="search-button" type="submit">Pesquisar</button>
+            </form>
+            <dialog id="search-dialog" aria-labelledby="search-title">
+              <div class="dialog-content">
+                <h2 id="search-title">Resultados da pesquisa</h2>
+                <div class="search-options">
+                  <label for="search-status">Status</label>
+                  <select id="search-status">
+                    <option value="all">Todos</option>
+                    <option value="active">Ativos</option>
+                    <option value="inactive">Inativos</option>
+                  </select>
+                </div>
+                <p id="search-summary" role="status" aria-live="polite"></p>
+                <div class="search-table-wrap">
+                  <table id="search-results">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome do cliente</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <button id="close-dialog" type="button">Fechar</button>
+              </div>
+            </dialog>
+          </div>
+        </nav>
+
+      <div class="nav-right">
+        <a href="#" class="user-icon">
+          <i class="fas fa-user"></i>
+        </a>
+
+        <a href="#" class="user-name">nome</a>
+
+        <span>|</span>
+
+        <a href="../auth/login.html" class="logout">Sair</a>
+      </div>
+
+    </header>
+    <section class="sidebar">
+      <div class="logo">
+        <h1>OC</h1>
+        <p class="logo-text">Operação Curiosidade</p>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="home">
+          <a href="dashboard.html">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="../clients/client-list.html">
+            <i class="fas fa-user-plus"></i>
+            <span class="menu-text">Cadastro</span>
+          </a>
+        </li>
+        <li>
+          <a href="../reports/reports.html">
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Relatórios</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <main class="main-content">
+      <div class="registration">
+        <div class="card-registration" id="total-registrations" style="grid-area: total-registrations;">
+          <h2>Total de Cadastros</h2>
+          <p>0</p>
+        </div>
+
+        <div class="card-registration" id="registrations-month" style="grid-area: registrations-month;">
+          <h2>Cadastros do Mês</h2>
+          <p>0</p>
+        </div>
+
+        <div class="card-registration" id="registrations-pending" style="grid-area: registrations-pending;">
+          <h2>Cadastros Pendentes</h2>
+          <p>0</p>
+        </div>
+
+        <div class="card-registration" id="last-registrations" style="grid-area: last-registrations;">
+          <h4>Últimos Cadastros</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th class="align-right">Status</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+        </div>
+    </main>
+
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+  <script type="module" src="../../shared/ui/search.js"></script>
+  <script type="module" src="../../dev/seed-clients.js"></script>
+
+</body>
+
+</html>
