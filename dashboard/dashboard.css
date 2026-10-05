@@ -9,7 +9,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-      "total-registrations registrations-month registrations-peding"
+      "total-registrations registrations-month registrations-pending"
       "last-registrations last-registrations last-registrations"
       "last-registrations last-registrations last-registrations";
     gap: 10px;
@@ -50,7 +50,7 @@
       }
     }
 
-    #registrations-peding {
+    #registrations-pending {
       p {
         color: red;
       }

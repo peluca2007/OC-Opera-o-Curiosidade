@@ -14,152 +14,158 @@
 </head>
 
 <body>
-  <div class="estrutura">
+  <div class="structure">
     <header class="header">
-      <nav class="search-bar">
+        <nav class="search-bar">
+          <div class="search">
+            <input type="search" id="search-input" placeholder="Pesquisar..." />
 
-        <div class="search">
-          <input type="search" placeholder="Pesquisar...">
-        </div>
+            <dialog id="search-dialog">
+              <div class="dialog-content">
+                <h2>Resultados da pesquisa</h2>
 
-        <div class="nav-right">
-          <a href="#" class="user-icon">
-            <i class="fas fa-user"></i>
-          </a>
+                <table id="search-results">
+                  <thead>
+                    <tr>
+                      <th>Nome do cliente</th>
+                      <th>Email do cliente</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
 
-          <a href="#" class="user-name">nome</a>
-
-          <span>|</span>
-
-          <a href="../login/login.html" class="logout">Sair</a>
-        </div>
-
-      </nav>
-    </header>
-
-    <section class="sidebar">
-
-      <div class="logo">
-        <h1>OC</h1>
-        <p class="logo-text">Operação Curiosidade</p>
-      </div>
-
-      <ul class="sidebar-menu">
-
-        <li class="home">
-          <a href="../dashboard/dashboard.html">
-            <i class="fas fa-home"></i>
-            <span class="menu-text">Home</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="../customers/customers.html">
-            <i class="fas fa-user-plus"></i>
-            <span class="menu-text">Cadastro</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="../record/record.html">
-            <i class="fas fa-chart-line"></i>
-            <span class="menu-text">Relatórios</span>
-          </a>
-        </li>
-
-      </ul>
-
-    </section>
-
-
-    <section class="register">
-      <div class="form-container">
-
-        <div class="header-register">
-          <h2>Novo Cadastro</h2>
-          <div class="checkbox-block">
-            <label for="activeOrNo">Ativo</label>
-            <input type="checkbox" id="activeOrNo" name="activeOrNo" value="active">
+                <button id="close-dialog" type="button">Fechar</button>
+              </div>
+            </dialog>
           </div>
+        </nav>
+      </header>
+
+      <section class="sidebar">
+
+        <div class="logo">
+          <h1>OC</h1>
+          <p class="logo-text">Operação Curiosidade</p>
         </div>
 
-        <h1>1º Fatos e Dados</h1>
-        <div class="form-group">
+        <ul class="sidebar-menu">
+
+          <li class="home">
+            <a href="../dashboard/dashboard.html">
+              <i class="fas fa-home"></i>
+              <span class="menu-text">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="../customers/customers.html">
+              <i class="fas fa-user-plus"></i>
+              <span class="menu-text">Cadastro</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="../record/record.html">
+              <i class="fas fa-chart-line"></i>
+              <span class="menu-text">Relatórios</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </section>
+
+
+      <section class="register">
+        <div class="form-container">
+
+          <div class="header-register">
+            <h2>Novo Cadastro</h2>
+            <div class="checkbox-block">
+              <label for="activeOrNo">Ativo</label>
+              <input type="checkbox" id="activeOrNo" name="activeOrNo" value="active">
+            </div>
+          </div>
+
+          <h1>1º Fatos e Dados</h1>
+          <div class="form-group">
+
+            <div class="input-block full-width">
+              <label for="name">Nome:<span class="required">*</span></label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="input-block">
+              <label for="email">Email:<span class="required">*</span></label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-block">
+              <label for="dateOfBirth">Data de Nascimento:<span class="required">*</span></label>
+              <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            </div>
+
+            <div class="input-block">
+              <label for="gender">Gênero:<span class="required">*</span></label>
+              <select id="gender" name="gender" required>
+                <option value="">Selecione</option>
+                <option value="male">Masculino</option>
+                <option value="female">Feminino</option>
+                <option value="other">Outro</option>
+              </select>
+            </div>
+
+            <div class="input-block">
+              <label for="phone">Telefone:<span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="input-block full-width">
+              <label for="address">Endereço: <span class="required">*</span></label>
+              <input type="text" id="address" name="address" required>
+            </div>
+
+          </div>
 
           <div class="input-block full-width">
-            <label for="name">Nome:<span class="required">*</span></label>
-            <input type="text" id="name" name="name" required>
+            <label for="othersInfo">Outras Informações:</label>
+            <textarea id="othersInfo" name="othersInfo" placeholder="Outras Informações"></textarea>
           </div>
 
-          <div class="input-block">
-            <label for="email">Email:<span class="required">*</span></label>
-            <input type="email" id="email" name="email" required>
-          </div>
-
-          <div class="input-block">
-            <label for="dateOfBirth">Data de Nascimento:<span class="required">*</span></label>
-            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-          </div>
-
-          <div class="input-block">
-            <label for="gender">Gênero:<span class="required">*</span></label>
-            <select id="gender" name="gender" required>
-              <option value="">Selecione</option>
-              <option value="male">Masculino</option>
-              <option value="female">Feminino</option>
-              <option value="other">Outro</option>
-            </select>
-          </div>
-
-          <div class="input-block">
-            <label for="phone">Telefone:<span class="required">*</span></label>
-            <input type="tel" id="phone" name="phone" required>
-          </div>
-
+          <h1>2º Interesses</h1>
           <div class="input-block full-width">
-            <label for="address">Endereço: <span class="required">*</span></label>
-            <input type="text" id="address" name="address" required>
+            <label for="interests">Interesses:</label>
+            <textarea id="interests" name="interests" placeholder="Interesses"></textarea>
+          </div>
+
+          <h1>3º Sentimentos</h1>
+          <div class="input-block full-width">
+            <textarea id="feelings" name="feelings" placeholder="Sentimentos"></textarea>
+          </div>
+
+          <h1>4º Valores</h1>
+          <div class="input-block full-width">
+            <textarea id="values" name="values" placeholder="Valores"></textarea>
           </div>
 
         </div>
 
-        <div class="input-block full-width">
-          <label for="othersInfo">Outras Informações:</label>
-          <textarea id="othersInfo" name="othersInfo" placeholder="Outras Informações"></textarea>
+        <div class="message" id="message" style="display: none;">
+          <p>Preencha todos os campos obrigatórios.</p>
         </div>
 
-        <h1>2º Interesses</h1>
-        <div class="input-block full-width">
-          <label for="interests">Interesses:</label>
-          <textarea id="interests" name="interests" placeholder="Interesses"></textarea>
+        <div class="messageAprove" id="messageAprove" style="display: none;">
+          <p>Cliente cadastrado com sucesso!</p>
         </div>
 
-        <h1>3º Sentimentos</h1>
-        <div class="input-block full-width">
-          <textarea id="feelings" name="feelings" placeholder="Sentimentos"></textarea>
-        </div>
-
-        <h1>4º Valores</h1>
-        <div class="input-block full-width">
-          <textarea id="values" name="values" placeholder="Valores"></textarea>
-        </div>
-
-      </div>
-
-      <div class="message" id="message" style="display: none;">
-        <p>Preencha todos os campos obrigatórios.</p>
-      </div>
-
-      <div class="messageAprove" id="messageAprove" style="display: none;">
-        <p>Cliente cadastrado com sucesso!</p>
-      </div>
-
-      <button type="submit" onclick="registerClient(); return false;">Gravar</button>
-    </section>
+        <input class="btn-new" type="button" value="Novo Cadastro" onclick="registerClient(); return false;">
+      </section>
 
   </div>
 
-  <script src="registerClient.js"> </script>
+  <script src="registerClient.js"></script>
+  <script src="../global/search.js"></script>
 
 </body>
 

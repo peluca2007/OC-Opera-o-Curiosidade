@@ -87,18 +87,21 @@ textarea {
   margin-top: 5px;
 }
 
-button[type="submit"] {
-  position: relative;
-  background-color: var(--button-color);
-  color: white;
-  width: 25%;
-  height: 30px;
-  left: 36%;
-  margin-top: 7px;
-  border-radius: 5px;
+.btn-new {
+    background-color: #63a35f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
-
-}
+    &:hover {
+      background-color: #4e854b;
+    }
+  }
 
 .required {
   color: red;

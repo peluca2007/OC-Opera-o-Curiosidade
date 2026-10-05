@@ -15,11 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentYear = now.getFullYear();
   const totalCount = clients.length;
 
-  
-  const monthOfBirth = (value) => {
-    const match = /^\d{4}-(\d{2})-\d{2}$/.exec(value || "");
-    return match ? Number(match[1]) : null;
-  };
+
 
   const registeredThisMonth = (value) => {
     const date = new Date(value);
@@ -40,6 +36,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("count-this-month").textContent =
     clients.filter(client => registeredThisMonth(client.createdAt)).length;
 
-  document.getElementById("count-birthdays").textContent =
-    clients.filter(client => monthOfBirth(client.dateOfBirth) === currentMonth).length;
-});
+}); 

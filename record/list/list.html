@@ -17,105 +17,113 @@
 
 <body>
 
-  <div class="estrutura">
+  <div class="structure">
     <header class="header">
-      <nav class="search-bar">
+        <nav class="search-bar">
+          <div class="search">
+            <input type="search" id="search-input" placeholder="Pesquisar..." />
 
-        <div class="search">
-          <input type="search" placeholder="Pesquisar...">
+            <dialog id="search-dialog">
+              <div class="dialog-content">
+                <h2>Resultados da pesquisa</h2>
+
+                <table id="search-results">
+                  <thead>
+                    <tr>
+                      <th>Nome do cliente</th>
+                      <th>Email do cliente</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+
+                <button id="close-dialog" type="button">Fechar</button>
+              </div>
+            </dialog>
+          </div>
+        </nav>
+      </header>
+      <section class="sidebar">
+        <div class="logo">
+          <h1>OC</h1>
+          <p class="logo-text">Operação Curiosidade</p>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="home">
+            <a href="../../dashboard/dashboard.html">
+              <i class="fas fa-home"></i>
+              <span class="menu-text">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../customers/customers.html">
+              <i class="fas fa-user-plus"></i>
+              <span class="menu-text">Cadastro</span>
+            </a>
+          </li>
+          <li>
+            <a href="../record.html">
+              <i class="fas fa-chart-line"></i>
+              <span class="menu-text">Relatórios</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <main class="list-clients">
+        <div class="main-header">
+          <h2><span id="hide-print">Relatório -></span><span id="report-title">Lista </span><span
+              id="report-title-description">de Clientes </span></h2>
+          <form>
+            <input class="btn-print" type="button" value="Imprimir" onClick="window.print()" />
+          </form>
         </div>
 
-        <div class="nav-right">
-          <a href="#" class="user-icon">
-            <i class="fas fa-user"></i>
-          </a>
-
-          <a href="#" class="user-name">nome</a>
-
-          <span>|</span>
-          <a href="../../login/login.html" class="logout">Sair</a>
+        <div class="list" id="clients-list">
+          <table>
+            <thead>
+              <tr>
+                <th>NOME</th>
+                <th>E-MAIL</th>
+                <th class="align-right">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stephanie Nichols</td>
+                <td>stephanienichols@gmail.com</td>
+                <td class="align-right">Ativo</td>
+              </tr>
+              <tr>
+                <td>Jeffrey Kane</td>
+                <td>jeffrey_kane@yahoo.com</td>
+                <td class="align-right">Ativo</td>
+              </tr>
+              <tr>
+                <td>Darin Miller</td>
+                <td>darinmiller01@gmail.com</td>
+                <td class="align-right">Ativo</td>
+              </tr>
+              <tr>
+                <td>Andrew Stuart</td>
+                <td>andrewstuart@outlook.com</td>
+                <td class="align-right">Ativo</td>
+              </tr>
+              <tr>
+                <td>Valerie Aguilar</td>
+                <td>valerie_aguilar@gmail.com</td>
+                <td class="align-right status-inactive">Inativo</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-      </nav>
-    </header>
-    <section class="sidebar">
-      <div class="logo">
-        <h1>OC</h1>
-        <p class="logo-text">Operação Curiosidade</p>
-      </div>
-      <ul class="sidebar-menu">
-        <li class="home">
-          <a href="../../dashboard/dashboard.html">
-            <i class="fas fa-home"></i>
-            <span class="menu-text">Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="../../customers/customers.html">
-            <i class="fas fa-user-plus"></i>
-            <span class="menu-text">Cadastro</span>
-          </a>
-        </li>
-        <li>
-          <a href="../record.html">
-            <i class="fas fa-chart-line"></i>
-            <span class="menu-text">Relatórios</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <main class="list-clients">
-      <div class="main-header">
-        <h2>Relatório -> lista de Clientes</h2>
-        <form>
-          <input class="btn-print" type="button" value="Imprimir" onClick="window.print()" />
-        </form>
-      </div>
-
-      <div class="list" id="clients-list">
-        <table>
-          <thead>
-            <tr>
-              <th>NOME</th>
-              <th>E-MAIL</th>
-              <th class="align-right">STATUS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Stephanie Nichols</td>
-              <td>stephanienichols@gmail.com</td>
-              <td class="align-right">Ativo</td>
-            </tr>
-            <tr>
-              <td>Jeffrey Kane</td>
-              <td>jeffrey_kane@yahoo.com</td>
-              <td class="align-right">Ativo</td>
-            </tr>
-            <tr>
-              <td>Darin Miller</td>
-              <td>darinmiller01@gmail.com</td>
-              <td class="align-right">Ativo</td>
-            </tr>
-            <tr>
-              <td>Andrew Stuart</td>
-              <td>andrewstuart@outlook.com</td>
-              <td class="align-right">Ativo</td>
-            </tr>
-            <tr>
-              <td>Valerie Aguilar</td>
-              <td>valerie_aguilar@gmail.com</td>
-              <td class="align-right status-inactive">Inativo</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
+      </main>
 
   </div>
 
   <script src="list.js"></script>
+  <script src="../global/search.js"></script>
 </body>
 
 </html>

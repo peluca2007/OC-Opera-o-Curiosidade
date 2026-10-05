@@ -20,7 +20,7 @@ function renderStats() {
   }).length;
 
   document.querySelector("#total-registrations p").textContent = totalCount;
-  document.querySelector("#registrations-peding p").textContent = pendingCount;
+  document.querySelector("#registrations-pending p").textContent = pendingCount;
   document.querySelector("#registrations-month p").textContent = lastMonthCount;
 }
 

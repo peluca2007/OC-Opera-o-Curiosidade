@@ -1,3 +1,5 @@
+@media print {
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@
   margin: 0cm;
 }
 
+
 body {
   color: #000;
   background: #fff;
@@ -18,10 +21,10 @@ body {
 .sidebar,
 .search-bar,
 .btn-print {
-  display: none !important;
+  display: none ;
 }
 
-.estrutura {
+.structure {
   height: auto;
   display: block;
 }
@@ -33,11 +36,13 @@ body {
 }
 
 .main-header {
+  display: block;
+  text-align: center;
   margin-bottom: 20px;
 }
 
 .main-header h2 {
-  font-size: 16pt;
+  font-size: 16px;
   text-align: center;
   text-transform: uppercase;
   border-bottom: 2px solid #000;
@@ -48,9 +53,9 @@ body {
   width: 100%;
 }
 
-
 table {
   width: 100%;
+  height: auto;
   border-collapse: collapse; 
 }
 
@@ -58,13 +63,12 @@ th,
 td {
   border: 1px solid #000;
   padding: 8px 12px;
-  font-size: 11pt;
+  font-size: 11px;
   text-align: center;
 }
 
-
 th {
-  background-color: #e0e0e0 !important;
+  background-color: #e0e0e0;
   font-weight: 700;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -72,9 +76,13 @@ th {
 
 }
 
+#hide-print {
+  display: none;
+}
+.report-title {
+  display: inline-block;
+  text-align: center;
 
+}
 
-
-tr {
-  page-break-inside: avoid;
 }

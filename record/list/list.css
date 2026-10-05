@@ -1,3 +1,6 @@
+@media screen {
+
+
 .list-clients {
   grid-area: main;
   background-color: #ffffff;
@@ -67,4 +70,5 @@
       color: #b3b3b3;
     }
   }
+}
 }

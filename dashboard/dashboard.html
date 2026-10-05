@@ -14,29 +14,48 @@
 </head>
 
 <body>
-  <div class="estrutura">
+  <div class="structure">
     <header class="header">
       <nav class="search-bar">
-
         <div class="search">
-          <input type="search" placeholder="Pesquisar...">
+          <input type="search" id="search-input" placeholder="Pesquisar..." />
+
+          <dialog id="search-dialog">
+            <div class="dialog-content">
+              <h2>Resultados da pesquisa</h2>
+
+              <table id="search-results">
+                <thead>
+                  <tr>
+                    <th>Nome do cliente</th>
+                    <th>Email do cliente</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+              <button id="close-dialog" type="button">Fechar</button>
+            </div>
+          </dialog>
         </div>
+      </nav>
 
-        <div class="nav-right">
-          <a href="#" class="user-icon">
-            <i class="fas fa-user"></i>
-          </a>
+      <div class="nav-right">
+        <a href="#" class="user-icon">
+          <i class="fas fa-user"></i>
+        </a>
 
-          <a href="#" class="user-name">nome</a>
+        <a href="#" class="user-name">nome</a>
 
-          <span>|</span>
+        <span>|</span>
 
-          <a href="../login/login.html" class="logout">Sair</a>
-        </div>
+        <a href="../login/login.html" class="logout">Sair</a>
+      </div>
 
       </nav>
     </header>
-<section class="sidebar">
+    <section class="sidebar">
       <div class="logo">
         <h1>OC</h1>
         <p class="logo-text">Operação Curiosidade</p>
@@ -75,7 +94,7 @@
           <p>0</p>
         </div>
 
-        <div class="card-registration" id="registrations-peding" style="grid-area: registrations-peding;">
+        <div class="card-registration" id="registrations-pending" style="grid-area: registrations-pending;">
           <h2>Cadastros Pendentes</h2>
           <p>0</p>
         </div>
@@ -104,7 +123,8 @@
   </div>
 
   <script src="../dashboard/dashboard.js"></script>
-  
+  <script src="../global/search.js"></script>
+
 </body>
 
 </html>
