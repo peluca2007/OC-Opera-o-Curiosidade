@@ -65,9 +65,7 @@ em cada página; a lógica e os estilos compartilhados ficam em shared.
    informar o problema sem sobrescrever os cadastros.
 2. **shared/utils/text-utils.js**: normalizeText permite comparar José com jose.
 3. **shared/utils/client-filters.js**: filterClients pesquisa somente nome,
-   e-mail e telefone. getClientsByStatus seleciona ativos ou inativos.
-   getClientCounts centraliza as contagens do dashboard e dos relatórios.
-   isRegisteredThisMonth verifica o mês de cadastro.
+   e-mail e telefone. isRegisteredThisMonth é usado no dashboard e nos relatórios.
 4. **shared/ui/client-table.js**: renderClientTable recebe o tbody da página
    e os clientes. Cria células usando textContent, sem interpretar os dados como HTML.
 5. **shared/ui/search.js**: conecta os eventos do formulário e do modal às
@@ -78,11 +76,6 @@ em cada página; a lógica e os estilos compartilhados ficam em shared.
    addClient. O botão usa addEventListener, porque funções de módulos não ficam globais.
 8. **pages/dashboard/dashboard.js** e **pages/reports/**: reaproveitam leitura,
    cálculo do mês e tabela. Cada página mantém suas próprias regras.
-
-Os trechos compartilhados usam etapas explícitas, laços for...of e funções
-com nome para facilitar o estudo. Por exemplo: ler os clientes, filtrar a
-lista e montar a tabela são chamadas separadas. A lista do relatório usa
-switch para escolher o título conforme o parâmetro da URL.
 
 Para copiar manualmente, comece pelos arquivos de shared; depois copie as
 páginas completas (HTML, CSS e JS). Atualize as referências em conjunto.

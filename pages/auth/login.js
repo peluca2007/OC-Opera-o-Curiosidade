@@ -1,40 +1,24 @@
 const users = [
-  { email: "admin@oc.com", password: "admin123" },
-  { email: "luciano@oc.com", password: "luciano123" }
+  { email: 'admin@oc.com', password: 'admin123' },
+  { email: 'luciano@oc.com', password: 'luciano123' },
 ];
 
 function login() {
-  const emailInput = document.getElementById("email");
-  const passwordInput = document.getElementById("password");
-  const message = document.getElementById("message");
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const message = document.getElementById('message');
 
-  const email = emailInput.value.trim();
-  const password = passwordInput.value;
-  let isValidUser = false;
-
-  // Procure uma conta com o mesmo e-mail e a mesma senha.
-  for (const user of users) {
-    const matchesEmail = user.email === email;
-    const matchesPassword = user.password === password;
-
-    if (matchesEmail && matchesPassword) {
-      isValidUser = true;
-      break;
-    }
-  }
+  const isValidUser = users.some((user) => user.email === email && user.password === password);
 
   if (!isValidUser) {
-    message.style.display = "block";
+    message.style.display = 'block';
     return;
   }
 
-  location.href = "../dashboard/dashboard.html";
+  location.href = '../dashboard/dashboard.html';
 }
-
-function submitLogin(event) {
+document.querySelector(".login-form").addEventListener("submit", event => {
   event.preventDefault();
   login();
-}
+});
 
-const loginForm = document.querySelector(".login-form");
-loginForm.addEventListener("submit", submitLogin);

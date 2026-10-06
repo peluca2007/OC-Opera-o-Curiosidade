@@ -1,27 +1,22 @@
 import { getClients } from "../../shared/services/client-service.js";
-import { getClientCounts } from "../../shared/utils/client-filters.js";
+import { isRegisteredThisMonth } from "../../shared/utils/client-filters.js";
 import { renderClientTable, renderTableMessage } from "../../shared/ui/client-table.js";
 
-const totalElement = document.querySelector("#total-registrations p");
-const pendingElement = document.querySelector("#registrations-pending p");
-const monthElement = document.querySelector("#registrations-month p");
 const tbody = document.querySelector("#last-registrations tbody");
 
 try {
   const clients = getClients();
-  const counts = getClientCounts(clients);
-
-  totalElement.textContent = counts.total;
-  pendingElement.textContent = counts.inactive;
-  monthElement.textContent = counts.thisMonth;
+  document.querySelector("#total-registrations p").textContent = clients.length;
+  document.querySelector("#registrations-pending p").textContent =
+    clients.filter(client => !client.isActive).length;
+  document.querySelector("#registrations-month p").textContent =
+    clients.filter(client => isRegisteredThisMonth(client)).length;
 
   renderClientTable(tbody, clients);
 } catch (error) {
   console.error("Erro no dashboard:", error);
-
-  totalElement.textContent = "—";
-  pendingElement.textContent = "—";
-  monthElement.textContent = "—";
-
+  ["total-registrations", "registrations-pending", "registrations-month"]
+    .forEach(id => document.querySelector("#" + id + " p").textContent = "—");
   renderTableMessage(tbody, "Não foi possível carregar os cadastros.");
 }
+
