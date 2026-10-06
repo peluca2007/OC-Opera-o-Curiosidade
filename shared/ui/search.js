@@ -12,16 +12,23 @@ const tbody = document.querySelector("#search-results tbody");
 
 function showResults() {
   const term = input.value.trim();
-  if (!term) {
+
+  if (term === "") {
     summary.textContent = "Informe o que deseja pesquisar.";
     renderTableMessage(tbody, "Digite um nome, e-mail ou telefone.");
   } else {
     try {
+      const clients = getClients();
+      const selectedStatus = status.value;
+      const results = filterClients(clients, term, selectedStatus);
+      const resultCount = results.length;
 
-      const results = filterClients(getClients(), term, status.value);
-      summary.textContent = results.length === 1
-        ? "1 cliente encontrado."
-        : results.length + " clientes encontrados.";
+      if (resultCount === 1) {
+        summary.textContent = "1 cliente encontrado.";
+      } else {
+        summary.textContent = resultCount + " clientes encontrados.";
+      }
+
       renderClientTable(tbody, results, "Nenhum cliente encontrado.");
     } catch (error) {
       console.error("Erro na pesquisa:", error);
@@ -30,17 +37,35 @@ function showResults() {
     }
   }
 
-  if (!dialog.open) dialog.showModal();
+  if (!dialog.open) {
+    dialog.showModal();
+  }
 }
 
+function submitSearch(event) {
+  event.preventDefault();
+  showResults();
+}
 
-// Enter envia o formulário e executa a pesquisa sem recarregar a página.
-if (form && input && dialog && closeButton && status && summary && tbody) {
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    showResults();
-  });
+function closeSearchDialog() {
+  dialog.close();
+}
+
+function focusSearchInput() {
+  input.focus();
+}
+
+function initializeSearch() {
+  // Só registre eventos se a página tiver todos os elementos da pesquisa.
+  if (!form || !input || !dialog || !closeButton || !status || !summary || !tbody) {
+    return;
+  }
+
+  // As funções abaixo são executadas quando seus eventos acontecem.
+  form.addEventListener("submit", submitSearch);
   status.addEventListener("change", showResults);
-  closeButton.addEventListener("click", () => dialog.close());
-  dialog.addEventListener("close", () => input.focus());
+  closeButton.addEventListener("click", closeSearchDialog);
+  dialog.addEventListener("close", focusSearchInput);
 }
+
+initializeSearch();

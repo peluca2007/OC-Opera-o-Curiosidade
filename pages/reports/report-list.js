@@ -1,32 +1,65 @@
 import { getClients } from "../../shared/services/client-service.js";
-import { isRegisteredThisMonth } from "../../shared/utils/client-filters.js";
+import { getClientsByStatus, isRegisteredThisMonth } from "../../shared/utils/client-filters.js";
 import { renderClientTable, renderTableMessage } from "../../shared/ui/client-table.js";
 
 const tbody = document.querySelector("#clients-list tbody");
 const title = document.getElementById("report-title-description");
-const reportType = new URLSearchParams(window.location.search).get("report");
 
-const reports = {
-  all: { title: "de Clientes", filter: () => true },
-  active: { title: "de Clientes ativos", filter: client => client.isActive },
-  inactive: { title: "de Clientes inativos", filter: client => !client.isActive },
-  "this-month": { title: "de cadastros do mês", filter: client => isRegisteredThisMonth(client) }
-};
+// Leia a opção enviada pelo link, por exemplo: ?report=active.
+const urlParams = new URLSearchParams(window.location.search);
+const reportType = urlParams.get("report");
 
-const report = reports[reportType];
-if (!report) {
-  title.textContent = "— relatório inválido";
-  renderTableMessage(tbody, "Escolha um relatório na página de Relatórios.");
-} else {
-  title.textContent = report.title;
+function loadReport() {
+  let reportTitle = "";
+
+  // Cada opção da URL corresponde a um título e um filtro.
+  switch (reportType) {
+    case "all":
+      reportTitle = "de Clientes";
+      break;
+    case "active":
+      reportTitle = "de Clientes ativos";
+      break;
+    case "inactive":
+      reportTitle = "de Clientes inativos";
+      break;
+    case "this-month":
+      reportTitle = "de cadastros do mês";
+      break;
+    default:
+      title.textContent = "— relatório inválido";
+      renderTableMessage(tbody, "Escolha um relatório na página de Relatórios.");
+      return;
+  }
+
+  title.textContent = reportTitle;
+
   try {
-    const clients = getClients().filter(report.filter);
-    renderClientTable(tbody, clients, "Nenhum cliente encontrado para este filtro.");
+    const clients = getClients();
+    let reportClients = [];
+
+    if (reportType === "this-month") {
+      for (const client of clients) {
+        if (isRegisteredThisMonth(client)) {
+          reportClients.push(client);
+        }
+      }
+    } else {
+      reportClients = getClientsByStatus(clients, reportType);
+    }
+
+    renderClientTable(tbody, reportClients, "Nenhum cliente encontrado para este filtro.");
   } catch (error) {
     console.error("Erro na lista do relatório:", error);
     renderTableMessage(tbody, "Não foi possível carregar os cadastros.");
   }
 }
 
-document.getElementById("print-report").addEventListener("click", () => window.print());
+function printReport() {
+  window.print();
+}
 
+loadReport();
+
+const printButton = document.getElementById("print-report");
+printButton.addEventListener("click", printReport);
