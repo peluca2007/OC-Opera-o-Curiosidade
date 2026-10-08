@@ -103,8 +103,25 @@ Todos os caminhos relativos dependem da estrutura de pastas acima.
 6. Abra a visualização de impressão do relatório.
 7. Confira navegação, pesquisa no celular e o console do navegador.
 
-Para dados fictícios, importe dev/seed-clients.js como módulo uma única vez
-em uma página local. O arquivo não é carregado automaticamente nas telas.
+Para dados fictícios, importe dev/seed-clients.js como módulo em uma página local.
+A seed contém 12 perfis, com clientes ativos e inativos, nomes com acentos,
+telefones diferentes, textos longos e campos opcionais vazios. As datas vão
+de hoje até um ano atrás para testar o dashboard e os relatórios.
+Executar novamente não duplica os exemplos nem sobrescreve clientes existentes.
+
+Na página Clientes, execute no console do navegador:
+
+```js
+const seed = await import("../../dev/seed-clients.js");
+```
+
+Depois, recarregue a página. Para executar novamente sem recarregar:
+
+```js
+seed.seedClients();
+```
+
+O arquivo não é carregado automaticamente nas telas.
 
 ## Próximas etapas
 
