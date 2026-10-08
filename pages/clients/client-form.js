@@ -1,6 +1,38 @@
-import { addClient } from "../../shared/services/client-service.js";
+import { addClient, getClients, updateClient } from "../../shared/services/client-service.js";
 
-function registerClient() {
+const urlParameters = new URLSearchParams(window.location.search);
+const editingClientId = urlParameters.get("id");
+
+function loadClientForEditing() {
+  if (editingClientId === null) return;
+
+  try {
+    const clients = getClients();
+    const client = clients.find(client => client.id === editingClientId);
+    if (!client) throw new Error("Cliente não encontrado.");
+
+    document.title = "Editar cliente";
+    document.getElementById("client-form-title").textContent = "Editar cliente";
+    document.getElementById("save-client").value = "Salvar alterações";
+    document.getElementById("activeOrNo").checked = Boolean(client.isActive);
+
+    const fieldNames = [
+      "name", "email", "dateOfBirth", "gender", "phone", "address",
+      "othersInfo", "interests", "feelings", "values"
+    ];
+    fieldNames.forEach(fieldName => {
+      document.getElementById(fieldName).value = client[fieldName] || "";
+    });
+  } catch (error) {
+    console.error("Erro ao carregar cliente:", error);
+    const message = document.getElementById("message");
+    message.textContent = "Não foi possível carregar este cliente. Volte para a lista de clientes.";
+    message.style.display = "block";
+    document.getElementById("save-client").disabled = true;
+  }
+}
+
+function saveClientForm() {
   let errorMsgElement = document.getElementById("message");
   let successMsgElement = document.getElementById("messageAprove");
   
@@ -68,6 +100,11 @@ function registerClient() {
   };
 
   try {
+    if (editingClientId !== null) {
+      updateClient(editingClientId, newClient);
+      window.location.href = "client-list.html";
+      return;
+    }
     addClient(newClient);
   } catch (error) {
     console.error("Erro ao salvar cliente:", error);
@@ -92,5 +129,5 @@ function registerClient() {
 
 
 // O evento é conectado aqui porque funções de módulos não são globais.
-document.getElementById("save-client").addEventListener("click", registerClient);
-
+document.getElementById("save-client").addEventListener("click", saveClientForm);
+loadClientForEditing();

@@ -3,7 +3,8 @@
 Protótipo de gestão de clientes feito com HTML, CSS e JavaScript puro.
 Os clientes continuam salvos na chave `clientsList` do localStorage.
 O login ainda utiliza as contas de demonstração do projeto original.
-Esta refatoração não implementa edição, exclusão nem controle de acesso.
+A página Clientes permite abrir as ações de um cliente, editar seus dados ou excluir com confirmação.
+O formulário de edição mantém a data original do cadastro. Controle de acesso ainda não foi implementado.
 
 ## Como abrir
 

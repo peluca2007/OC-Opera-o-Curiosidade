@@ -78,7 +78,7 @@
           <li>
             <a href="client-list.html">
               <i class="fas fa-user-plus"></i>
-              <span class="menu-text">Cadastro</span>
+              <span class="menu-text">Clientes</span>
             </a>
           </li>
           <li>
@@ -92,7 +92,7 @@
 
       <main class="clients-register">
         <div class="main-header">
-          <h2>Cadastros</h2>
+          <h2>Clientes</h2>
           <input class="btn-new" type="button" value="Novo Cadastro"
             onclick="window.location.href='client-form.html'">
         </div>
@@ -107,6 +107,16 @@
               </tr>
             </thead>
             <tbody></tbody>
+  <dialog id="client-actions" aria-labelledby="client-actions-title" aria-describedby="selected-client-name">
+    <button id="close-client-actions" type="button" aria-label="Fechar">×</button>
+    <h2 id="client-actions-title">Ações do cliente</h2>
+    <p id="selected-client-name"></p>
+    <div class="client-actions-buttons">
+      <button id="edit-client" type="button" autofocus>Editar</button>
+      <button id="delete-client" type="button">Excluir</button>
+    </div>
+    <p id="client-action-message" role="alert"></p>
+  </dialog>
           </table>
         </div>
       </main>

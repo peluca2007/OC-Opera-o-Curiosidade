@@ -9,6 +9,15 @@ export function getClients() {
   )) {
     throw new Error("Os cadastros salvos não são uma lista válida.");
   }
+  // Clientes antigos também recebem uma identificação fixa.
+  let addedIds = false;
+  clients.forEach(client => {
+    if (!client.id) {
+      client.id = crypto.randomUUID();
+      addedIds = true;
+    }
+  });
+  if (addedIds) saveClients(clients);
   return clients;
 }
 
@@ -22,7 +31,31 @@ export function saveClients(clients) {
 export function addClient(client) {
   // Leia no momento de salvar para não usar uma lista antiga.
   const clients = getClients();
+  client.id = crypto.randomUUID();
   clients.push(client);
+  saveClients(clients);
+}
+
+export function updateClient(clientId, updatedData) {
+  const clients = getClients();
+  const client = clients.find(client => client.id === clientId);
+  if (!client) throw new Error("Cliente não encontrado.");
+
+  // Mantém a identificação e a data original do cadastro.
+  const originalId = client.id;
+  const originalDate = client.createdAt;
+  Object.assign(client, updatedData);
+  client.id = originalId;
+  client.createdAt = originalDate;
+  saveClients(clients);
+}
+
+export function deleteClient(clientId) {
+  const clients = getClients();
+  const clientIndex = clients.findIndex(client => client.id === clientId);
+  if (clientIndex === -1) throw new Error("Cliente não encontrado.");
+
+  clients.splice(clientIndex, 1);
   saveClients(clients);
 }
 
