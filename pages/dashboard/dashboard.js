@@ -1,11 +1,19 @@
 import { getClients } from "../../shared/services/client-service.js";
+import { seedClients } from "../../dev/seed-clients.js";
 import { isRegisteredThisMonth } from "../../shared/utils/client-filters.js";
 import { renderClientTable, renderTableMessage } from "../../shared/ui/client-table.js";
 
 const tbody = document.querySelector("#last-registrations tbody");
 
 try {
-  const clients = getClients();
+  let clients = getClients();
+
+  // Preenche o protótipo com exemplos somente quando não há clientes.
+  if (clients.length === 0) {
+    seedClients();
+    clients = getClients();
+  }
+
   document.querySelector("#total-registrations p").textContent = clients.length;
   document.querySelector("#registrations-pending p").textContent =
     clients.filter(client => !client.isActive).length;

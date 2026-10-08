@@ -146,5 +146,3 @@ export function seedClients() {
   console.info("Seed: " + addedCount + " clientes adicionados. Total: " + clients.length + ".");
   return addedCount;
 }
-
-seedClients();
