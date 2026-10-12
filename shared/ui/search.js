@@ -34,7 +34,7 @@ function showResults() {
 }
 
 
-// Enter envia o formulário e executa a pesquisa sem recarregar a página.
+
 if (form && input && dialog && closeButton && status && summary && tbody) {
   form.addEventListener("submit", event => {
     event.preventDefault();

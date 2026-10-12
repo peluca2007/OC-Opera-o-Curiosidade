@@ -1,7 +1,5 @@
 const STORAGE_KEY = "clientsList";
 
-// A chave original é mantida para reaproveitar os cadastros já salvos.
-// Dados inválidos geram erro: não devem ser tratados como uma lista vazia.
 export function getClients() {
   const clients = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
   if (!Array.isArray(clients) || clients.some(client =>
@@ -9,7 +7,7 @@ export function getClients() {
   )) {
     throw new Error("Os cadastros salvos não são uma lista válida.");
   }
-  // Clientes antigos também recebem uma identificação fixa.
+
   let addedIds = false;
   clients.forEach(client => {
     if (!client.id) {
@@ -29,7 +27,7 @@ export function saveClients(clients) {
 }
 
 export function addClient(client) {
-  // Leia no momento de salvar para não usar uma lista antiga.
+
   const clients = getClients();
   client.id = crypto.randomUUID();
   clients.push(client);
@@ -41,7 +39,7 @@ export function updateClient(clientId, updatedData) {
   const client = clients.find(client => client.id === clientId);
   if (!client) throw new Error("Cliente não encontrado.");
 
-  // Mantém a identificação e a data original do cadastro.
+
   const originalId = client.id;
   const originalDate = client.createdAt;
   Object.assign(client, updatedData);
@@ -58,4 +56,3 @@ export function deleteClient(clientId) {
   clients.splice(clientIndex, 1);
   saveClients(clients);
 }
-

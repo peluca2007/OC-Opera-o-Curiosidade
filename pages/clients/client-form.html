@@ -18,41 +18,41 @@
 <body>
   <div class="structure">
     <header class="header">
-        <nav class="search-bar" aria-label="Pesquisa de clientes">
-          <div class="search">
-            <form id="search-form" role="search">
-              <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
-              <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
-            </form>
-            <dialog id="search-dialog" aria-labelledby="search-title">
-              <div class="dialog-content">
-                <h2 id="search-title">Resultados da pesquisa</h2>
-                <div class="search-options">
-                  <label for="search-status">Status</label>
-                  <select id="search-status">
-                    <option value="all">Todos</option>
-                    <option value="active">Ativos</option>
-                    <option value="inactive">Inativos</option>
-                  </select>
-                </div>
-                <p id="search-summary" role="status" aria-live="polite"></p>
-                <div class="search-table-wrap">
-                  <table id="search-results">
-                    <thead>
-                      <tr>
-                        <th scope="col">Nome do cliente</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
-                <button id="close-dialog" type="button">Fechar</button>
+      <nav class="search-bar" aria-label="Pesquisa de clientes">
+        <div class="search">
+          <form id="search-form" role="search">
+            <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
+            <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
+          </form>
+          <dialog id="search-dialog" aria-labelledby="search-title">
+            <div class="dialog-content">
+              <h2 id="search-title">Resultados da pesquisa</h2>
+              <div class="search-options">
+                <label for="search-status">Status</label>
+                <select id="search-status">
+                  <option value="all">Todos</option>
+                  <option value="active">Ativos</option>
+                  <option value="inactive">Inativos</option>
+                </select>
               </div>
-            </dialog>
-          </div>
-        </nav>
+              <p id="search-summary" role="status" aria-live="polite"></p>
+              <div class="search-table-wrap">
+                <table id="search-results">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome do cliente</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <button id="close-dialog" type="button">Fechar</button>
+            </div>
+          </dialog>
+        </div>
+      </nav>
       <div class="nav-right">
         <a href="#" class="user-icon" aria-label="Perfil do usuário">
           <i class="fas fa-user" aria-hidden="true"></i>
@@ -61,128 +61,128 @@
         <span aria-hidden="true">|</span>
         <a href="../auth/login.html" class="logout">Sair</a>
       </div>
-      </header>
+    </header>
 
-      <section class="sidebar">
+    <section class="sidebar">
 
-        <div class="logo">
-          <h1>OC</h1>
-          <p class="logo-text">Operação Curiosidade</p>
+      <div class="logo">
+        <h1>OC</h1>
+        <p class="logo-text">Operação Curiosidade</p>
+      </div>
+
+      <ul class="sidebar-menu">
+
+        <li class="home">
+          <a href="../dashboard/dashboard.html">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Home</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="client-list.html">
+            <i class="fas fa-user-plus"></i>
+            <span class="menu-text">Clientes</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="../reports/reports.html">
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Relatórios</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="register">
+      <div class="form-container">
+
+        <div class="header-register">
+          <h2 id="client-form-title">Novo Cadastro</h2>
+          <div class="checkbox-block">
+            <label for="activeOrNo">Ativo</label>
+            <input type="checkbox" id="activeOrNo" name="activeOrNo" value="active">
+          </div>
         </div>
 
-        <ul class="sidebar-menu">
+        <h1>1º Fatos e Dados</h1>
+        <div class="form-group">
 
-          <li class="home">
-            <a href="../dashboard/dashboard.html">
-              <i class="fas fa-home"></i>
-              <span class="menu-text">Home</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="client-list.html">
-              <i class="fas fa-user-plus"></i>
-              <span class="menu-text">Clientes</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="../reports/reports.html">
-              <i class="fas fa-chart-line"></i>
-              <span class="menu-text">Relatórios</span>
-            </a>
-          </li>
-
-        </ul>
-
-      </section>
-
-
-      <section class="register">
-        <div class="form-container">
-
-          <div class="header-register">
-            <h2 id="client-form-title">Novo Cadastro</h2>
-            <div class="checkbox-block">
-              <label for="activeOrNo">Ativo</label>
-              <input type="checkbox" id="activeOrNo" name="activeOrNo" value="active">
-            </div>
+          <div class="input-block full-width">
+            <label for="name">Nome:<span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
           </div>
 
-          <h1>1º Fatos e Dados</h1>
-          <div class="form-group">
+          <div class="input-block">
+            <label for="email">Email:<span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
 
-            <div class="input-block full-width">
-              <label for="name">Nome:<span class="required">*</span></label>
-              <input type="text" id="name" name="name" required>
-            </div>
+          <div class="input-block">
+            <label for="dateOfBirth">Data de Nascimento:<span class="required">*</span></label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+          </div>
 
-            <div class="input-block">
-              <label for="email">Email:<span class="required">*</span></label>
-              <input type="email" id="email" name="email" required>
-            </div>
+          <div class="input-block">
+            <label for="gender">Gênero:<span class="required">*</span></label>
+            <select id="gender" name="gender" required>
+              <option value="">Selecione</option>
+              <option value="male">Masculino</option>
+              <option value="female">Feminino</option>
+              <option value="other">Outro</option>
+            </select>
+          </div>
 
-            <div class="input-block">
-              <label for="dateOfBirth">Data de Nascimento:<span class="required">*</span></label>
-              <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-            </div>
-
-            <div class="input-block">
-              <label for="gender">Gênero:<span class="required">*</span></label>
-              <select id="gender" name="gender" required>
-                <option value="">Selecione</option>
-                <option value="male">Masculino</option>
-                <option value="female">Feminino</option>
-                <option value="other">Outro</option>
-              </select>
-            </div>
-
-            <div class="input-block">
-              <label for="phone">Telefone:<span class="required">*</span></label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
-
-            <div class="input-block full-width">
-              <label for="address">Endereço: <span class="required">*</span></label>
-              <input type="text" id="address" name="address" required>
-            </div>
-
+          <div class="input-block">
+            <label for="phone">Telefone:<span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required>
           </div>
 
           <div class="input-block full-width">
-            <label for="othersInfo">Outras Informações:</label>
-            <textarea id="othersInfo" name="othersInfo" placeholder="Outras Informações"></textarea>
-          </div>
-
-          <h1>2º Interesses</h1>
-          <div class="input-block full-width">
-            <label for="interests">Interesses:</label>
-            <textarea id="interests" name="interests" placeholder="Interesses"></textarea>
-          </div>
-
-          <h1>3º Sentimentos</h1>
-          <div class="input-block full-width">
-            <textarea id="feelings" name="feelings" placeholder="Sentimentos"></textarea>
-          </div>
-
-          <h1>4º Valores</h1>
-          <div class="input-block full-width">
-            <textarea id="values" name="values" placeholder="Valores"></textarea>
+            <label for="address">Endereço: <span class="required">*</span></label>
+            <input type="text" id="address" name="address" required>
           </div>
 
         </div>
 
-        <div class="message" id="message" style="display: none;">
-          <p>Preencha todos os campos obrigatórios.</p>
+        <div class="input-block full-width">
+          <label for="othersInfo">Outras Informações:</label>
+          <textarea id="othersInfo" name="othersInfo" placeholder="Outras Informações"></textarea>
         </div>
 
-        <div class="messageAprove" id="messageAprove" style="display: none;">
+        <h1>2º Interesses</h1>
+        <div class="input-block full-width">
+          <label for="interests">Interesses:</label>
+          <textarea id="interests" name="interests" placeholder="Interesses"></textarea>
+        </div>
+
+        <h1>3º Sentimentos</h1>
+        <div class="input-block full-width">
+          <textarea id="feelings" name="feelings" placeholder="Sentimentos"></textarea>
+        </div>
+
+        <h1>4º Valores</h1>
+        <div class="input-block full-width">
+          <textarea id="values" name="values" placeholder="Valores"></textarea>
+        </div>
+
+      </div>
+
+      <div class="message" id="message" style="display: none;">
+        <p>Preencha todos os campos obrigatórios.</p>
+      </div>
+
+      <div class="messageAprove" id="messageAprove" style="display: none;">
         <a href="client-list.html">Voltar para clientes</a>
-          <p>Cliente cadastrado com sucesso!</p>
-        </div>
+        <p>Cliente cadastrado com sucesso!</p>
+      </div>
 
-        <input class="btn-new" type="button" id="save-client" value="Salvar cadastro">
-      </section>
+      <input class="btn-new" type="button" id="save-client" value="Salvar cadastro">
+    </section>
 
   </div>
 

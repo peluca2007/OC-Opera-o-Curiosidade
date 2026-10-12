@@ -1,4 +1,3 @@
-// "José" e "JOSE" passam a ter o mesmo texto de comparação: "jose".
 export function normalizeText(value) {
   return String(value ?? "")
     .normalize("NFD")
@@ -6,4 +5,3 @@ export function normalizeText(value) {
     .toLowerCase()
     .trim();
 }
-

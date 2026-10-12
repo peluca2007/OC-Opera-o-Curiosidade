@@ -21,99 +21,102 @@
 
   <div class="structure">
     <header class="header">
-        <nav class="search-bar" aria-label="Pesquisa de clientes">
-          <div class="search">
-            <form id="search-form" role="search">
-              <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
-              <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
-            </form>
-            <dialog id="search-dialog" aria-labelledby="search-title">
-              <div class="dialog-content">
-                <h2 id="search-title">Resultados da pesquisa</h2>
-                <div class="search-options">
-                  <label for="search-status">Status</label>
-                  <select id="search-status">
-                    <option value="all">Todos</option>
-                    <option value="active">Ativos</option>
-                    <option value="inactive">Inativos</option>
-                  </select>
-                </div>
-                <p id="search-summary" role="status" aria-live="polite"></p>
-                <div class="search-table-wrap">
-                  <table id="search-results">
-                    <thead>
-                      <tr>
-                        <th scope="col">Nome do cliente</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
-                <button id="close-dialog" type="button">Fechar</button>
+      <nav class="search-bar" aria-label="Pesquisa de clientes">
+        <div class="search">
+          <form id="search-form" role="search">
+            <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
+            <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
+          </form>
+          <dialog id="search-dialog" aria-labelledby="search-title">
+            <div class="dialog-content">
+              <h2 id="search-title">Resultados da pesquisa</h2>
+              <div class="search-options">
+                <label for="search-status">Status</label>
+                <select id="search-status">
+                  <option value="all">Todos</option>
+                  <option value="active">Ativos</option>
+                  <option value="inactive">Inativos</option>
+                </select>
               </div>
-            </dialog>
-          </div>
-        </nav>
+              <p id="search-summary" role="status" aria-live="polite"></p>
+              <div class="search-table-wrap">
+                <table id="search-results">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome do cliente</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <button id="close-dialog" type="button">Fechar</button>
+            </div>
+          </dialog>
+        </div>
+      </nav>
       <div class="nav-right">
-        <a href="#" class="user-icon" aria-label="Perfil do usuário">
-          <i class="fas fa-user" aria-hidden="true"></i>
+        <a href="#" class="user-icon">
+          <i class="fas fa-user"></i>
         </a>
+
         <a href="#" class="user-name">nome</a>
-        <span aria-hidden="true">|</span>
+
+        <span>|</span>
+
         <a href="../auth/login.html" class="logout">Sair</a>
       </div>
-      </header>
-      <section class="sidebar">
-        <div class="logo">
-          <h1>OC</h1>
-          <p class="logo-text">Operação Curiosidade</p>
-        </div>
-        <ul class="sidebar-menu">
-          <li class="home">
-            <a href="../dashboard/dashboard.html">
-              <i class="fas fa-home"></i>
-              <span class="menu-text">Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="../clients/client-list.html">
-              <i class="fas fa-user-plus"></i>
-              <span class="menu-text">Clientes</span>
-            </a>
-          </li>
-          <li>
-            <a href="reports.html">
-              <i class="fas fa-chart-line"></i>
-              <span class="menu-text">Relatórios</span>
-            </a>
-          </li>
-        </ul>
-      </section>
+    </header>
+    <section class="sidebar">
+      <div class="logo">
+        <h1>OC</h1>
+        <p class="logo-text">Operação Curiosidade</p>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="home">
+          <a href="../dashboard/dashboard.html">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="../clients/client-list.html">
+            <i class="fas fa-user-plus"></i>
+            <span class="menu-text">Clientes</span>
+          </a>
+        </li>
+        <li>
+          <a href="reports.html">
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Relatórios</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-      <main class="list-clients">
-        <div class="main-header">
-          <h2><span id="hide-print">Relatório -></span><span id="report-title">Lista </span><span
-              id="report-title-description">de Clientes </span></h2>
-          <form>
-            <input class="btn-print" type="button" value="Imprimir" id="print-report" />
-          </form>
-        </div>
+    <main class="list-clients">
+      <div class="main-header">
+        <h2><span id="hide-print">Relatório -></span><span id="report-title">Lista </span><span
+            id="report-title-description">de Clientes </span></h2>
+        <form>
+          <input class="btn-print" type="button" value="Imprimir" id="print-report" />
+        </form>
+      </div>
 
-        <div class="list" id="clients-list">
-          <table>
-            <thead>
-              <tr>
-                <th>NOME</th>
-                <th>E-MAIL</th>
-                <th class="align-right">STATUS</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </main>
+      <div class="list" id="clients-list">
+        <table>
+          <thead>
+            <tr>
+              <th>NOME</th>
+              <th>E-MAIL</th>
+              <th class="align-right">STATUS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
 
   </div>
 

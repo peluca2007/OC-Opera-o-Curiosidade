@@ -1,4 +1,4 @@
-import { getClients, deleteClient } from "../../shared/services/client-service.js";
+import { getClients, deleteClient} from "../../shared/services/client-service.js";
 import { renderClientTable, renderTableMessage } from "../../shared/ui/client-table.js";
 
 const tbody = document.querySelector("#clients-registrations tbody");
@@ -54,20 +54,7 @@ document.getElementById("edit-client").addEventListener("click", () => {
   window.location.href = "client-form.html?id=" + encodeURIComponent(selectedClient.id);
 });
 
-document.getElementById("delete-client").addEventListener("click", () => {
-  if (!selectedClient) return;
-  const confirmed = window.confirm("Excluir o cliente " + selectedClient.name + "?");
-  if (!confirmed) return;
 
-  try {
-    deleteClient(selectedClient.id);
-    dialog.close();
-    loadClientTable();
-  } catch (error) {
-    console.error("Erro ao excluir cliente:", error);
-    actionMessage.textContent = "Não foi possível excluir o cliente.";
-  }
-});
 
 document.getElementById("close-client-actions").addEventListener("click", () => {
   dialog.close();
@@ -77,5 +64,16 @@ dialog.addEventListener("close", () => {
   selectedClient = null;
 });
 
-loadClientTable();
+document.getElementById("delete-client").addEventListener("click", () => {
+  if (!selectedClient) return;
+  try {
+    deleteClient(selectedClient.id);
+    dialog.close();
+    loadClientTable();
+  } catch (error) {
+    console.error("Erro ao excluir cliente:", error);
+  }
+});
 
+loadClientTable();
+  

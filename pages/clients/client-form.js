@@ -128,6 +128,5 @@ function saveClientForm() {
 }
 
 
-// O evento é conectado aqui porque funções de módulos não são globais.
 document.getElementById("save-client").addEventListener("click", saveClientForm);
 loadClientForEditing();

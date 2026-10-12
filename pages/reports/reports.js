@@ -18,4 +18,3 @@ try {
   note.textContent = "Não foi possível ler os cadastros salvos neste navegador.";
   note.hidden = false;
 }
-

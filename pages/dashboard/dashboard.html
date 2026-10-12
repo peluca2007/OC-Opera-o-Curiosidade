@@ -19,49 +19,48 @@
   <div class="structure">
     <header class="header">
       <nav class="search-bar" aria-label="Pesquisa de clientes">
-          <div class="search">
-            <form id="search-form" role="search">
-              <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
-              <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
-            </form>
-            <dialog id="search-dialog" aria-labelledby="search-title">
-              <div class="dialog-content">
-                <h2 id="search-title">Resultados da pesquisa</h2>
-                <div class="search-options">
-                  <label for="search-status">Status</label>
-                  <select id="search-status">
-                    <option value="all">Todos</option>
-                    <option value="active">Ativos</option>
-                    <option value="inactive">Inativos</option>
-                  </select>
-                </div>
-                <p id="search-summary" role="status" aria-live="polite"></p>
-                <div class="search-table-wrap">
-                  <table id="search-results">
-                    <thead>
-                      <tr>
-                        <th scope="col">Nome do cliente</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
-                </div>
-                <button id="close-dialog" type="button">Fechar</button>
+        <div class="search">
+          <form id="search-form" role="search">
+            <label class="sr-only" for="search-input">Pesquisar clientes por nome, e-mail ou telefone</label>
+            <input type="search" id="search-input" placeholder="Nome, e-mail ou telefone..." autocomplete="off">
+          </form>
+          <dialog id="search-dialog" aria-labelledby="search-title">
+            <div class="dialog-content">
+              <h2 id="search-title">Resultados da pesquisa</h2>
+              <div class="search-options">
+                <label for="search-status">Status</label>
+                <select id="search-status">
+                  <option value="all">Todos</option>
+                  <option value="active">Ativos</option>
+                  <option value="inactive">Inativos</option>
+                </select>
               </div>
-            </dialog>
-          </div>
-        </nav>
-
+              <p id="search-summary" role="status" aria-live="polite"></p>
+              <div class="search-table-wrap">
+                <table id="search-results">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome do cliente</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <button id="close-dialog" type="button">Fechar</button>
+            </div>
+          </dialog>
+        </div>
+      </nav>
       <div class="nav-right">
-        <a href="#" class="user-icon" aria-label="Perfil do usuário">
-          <i class="fas fa-user" aria-hidden="true"></i>
+        <a href="#" class="user-icon">
+          <i class="fas fa-user"></i>
         </a>
 
         <a href="#" class="user-name">nome</a>
 
-        <span aria-hidden="true">|</span>
+        <span>|</span>
 
         <a href="../auth/login.html" class="logout">Sair</a>
       </div>
@@ -107,22 +106,22 @@
         </div>
 
         <div class="card-registration" id="registrations-pending" style="grid-area: registrations-pending;">
-          <h2>Cadastros Pendentes</h2>
+          <h2>Cadastros inativos</h2>
           <p>0</p>
         </div>
 
         <div class="card-registration" id="last-registrations" style="grid-area: last-registrations;">
           <h4>Últimos Cadastros</h4>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th class="align-right">Status</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th class="align-right">Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
     </main>
 

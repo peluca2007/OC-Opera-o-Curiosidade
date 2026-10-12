@@ -1,6 +1,5 @@
 function createCell(value) {
   const cell = document.createElement("td");
-  // Dados digitados pelo usuário são texto, não HTML.
   cell.textContent = String(value ?? "");
   return cell;
 }
@@ -14,7 +13,7 @@ export function renderTableMessage(tbody, message) {
   tbody.replaceChildren(row);
 }
 
-// A página informa qual tabela será preenchida; o módulo não escolhe uma tela.
+
 export function renderClientTable(tbody, clients, emptyMessage = "Nenhum cliente cadastrado.") {
   tbody.replaceChildren();
   if (!clients.length) {
@@ -35,4 +34,3 @@ export function renderClientTable(tbody, clients, emptyMessage = "Nenhum cliente
   });
   tbody.appendChild(fragment);
 }
-

@@ -24,7 +24,6 @@ body {
 }
 
 
-/* Utilitário de acessibilidade: mantém o rótulo disponível aos leitores de tela. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -41,4 +40,3 @@ body {
   text-align: center;
   color: var(--text-muted);
 }
-

@@ -9,7 +9,7 @@ export function isRegisteredThisMonth(client, today = new Date()) {
     date.getTime() <= today.getTime();
 }
 
-// Função sem acesso ao HTML ou ao armazenamento: recebe dados e devolve resultados.
+
 export function filterClients(clients, term, status = "all") {
   const text = normalizeText(term);
   if (!text) return [];
@@ -27,4 +27,3 @@ export function filterClients(clients, term, status = "all") {
     return matchesStatus && (matchesText || matchesPhone);
   });
 }
-

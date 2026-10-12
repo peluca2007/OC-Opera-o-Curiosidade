@@ -21,4 +21,3 @@ document.querySelector(".login-form").addEventListener("submit", event => {
   event.preventDefault();
   login();
 });
-
