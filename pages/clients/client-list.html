@@ -58,7 +58,7 @@
         <a href="#" class="user-icon" aria-label="Perfil do usuário">
           <i class="fas fa-user" aria-hidden="true"></i>
         </a>
-        <a href="#" class="user-name">nome</a>
+        <a href="#" class="user-name" id="user-name">nome</a>
         <span aria-hidden="true">|</span>
         <a href="../auth/login.html" class="logout">Sair</a>
       </div>
@@ -112,9 +112,10 @@
             <p id="selected-client-name"></p>
             <div class="client-actions-buttons">
               <button id="edit-client" type="button" autofocus>Editar</button>
+              <button id="view-client" type="button">Visualizar</button>
               <button id="delete-client" type="button">Excluir</button>
             </div>
-            <p id="client-action-message" role="alert"></p>
+            <p id="client-action-message" style="color: rgb(199, 6, 6);display: none;"></p>
           </dialog>
         </table>
       </div>

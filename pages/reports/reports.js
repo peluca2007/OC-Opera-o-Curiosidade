@@ -1,5 +1,8 @@
 import { getClients } from "../../shared/services/client-service.js";
 import { isRegisteredThisMonth } from "../../shared/utils/client-filters.js";
+import { showLoggedUserName } from "../../shared/components/user-name.js";
+
+showLoggedUserName();
 
 try {
   const clients = getClients();
@@ -11,7 +14,6 @@ try {
   document.getElementById("count-this-month").textContent =
     clients.filter(client => isRegisteredThisMonth(client)).length;
 } catch (error) {
-  console.error("Erro nos relatórios:", error);
   ["count-all", "count-active", "count-inactive", "count-this-month"]
     .forEach(id => document.getElementById(id).textContent = "—");
   const note = document.getElementById("report-note");

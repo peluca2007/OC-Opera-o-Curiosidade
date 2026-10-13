@@ -132,6 +132,8 @@
 #edit-client:hover { background: #4e854b; }
 #delete-client { background: #bd4545; }
 #delete-client:hover { background: #9f3636; }
+#view-client { background: #2272cd; }
+#view-client:hover { background: #104a7d; }
 
 #client-actions button:focus-visible {
   outline: 3px solid var(--color-band);

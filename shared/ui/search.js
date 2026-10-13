@@ -24,7 +24,6 @@ function showResults() {
         : results.length + " clientes encontrados.";
       renderClientTable(tbody, results, "Nenhum cliente encontrado.");
     } catch (error) {
-      console.error("Erro na pesquisa:", error);
       summary.textContent = "Não foi possível carregar os cadastros.";
       renderTableMessage(tbody, "Verifique os dados salvos e tente novamente.");
     }

@@ -1,30 +1,51 @@
 import { addClient, getClients, updateClient } from "../../shared/services/client-service.js";
+import { showLoggedUserName } from "../../shared/components/user-name.js";
+
+showLoggedUserName();
 
 const urlParameters = new URLSearchParams(window.location.search);
-const editingClientId = urlParameters.get("id");
+const isViewMode = urlParameters.get("id") === "view";
 
-function loadClientForEditing() {
+const editingClientId = isViewMode ? urlParameters.get("client_id") : urlParameters.get("id");
+
+
+function loadClientData() {
   if (editingClientId === null) return;
+
+
 
   try {
     const clients = getClients();
     const client = clients.find(client => client.id === editingClientId);
     if (!client) throw new Error("Cliente não encontrado.");
 
-    document.title = "Editar cliente";
-    document.getElementById("client-form-title").textContent = "Editar cliente";
-    document.getElementById("save-client").value = "Salvar alterações";
-    document.getElementById("activeOrNo").checked = Boolean(client.isActive);
+
+    if (!isViewMode) {
+      document.title = "Editar cliente";
+      document.getElementById("client-form-title").textContent = "Editar cliente";
+      document.getElementById("save-client").value = "Salvar alterações";
+      document.getElementById("activeOrNo").checked = Boolean(client.isActive);
+    } else {
+      document.title = "Visualizar cliente";
+      document.getElementById("client-form-title").textContent = "Visualizar cliente";
+      document.getElementById("save-client").value = "Voltar para a lista";
+    }
+
+    document.getElementById("activeOrNo").disabled = isViewMode;
 
     const fieldNames = [
       "name", "email", "dateOfBirth", "gender", "phone", "address",
       "othersInfo", "interests", "feelings", "values"
     ];
+
     fieldNames.forEach(fieldName => {
-      document.getElementById(fieldName).value = client[fieldName] || "";
+      const field = document.getElementById(fieldName);
+
+      field.value = client[fieldName] || "";
+      field.disabled = isViewMode;
     });
+
   } catch (error) {
-    console.error("Erro ao carregar cliente:", error);
     const message = document.getElementById("message");
     message.textContent = "Não foi possível carregar este cliente. Volte para a lista de clientes.";
     message.style.display = "block";
@@ -32,24 +53,26 @@ function loadClientForEditing() {
   }
 }
 
+
+
 function saveClientForm() {
   let errorMsgElement = document.getElementById("message");
   let successMsgElement = document.getElementById("messageAprove");
-  
+
   errorMsgElement.style.display = "none";
   successMsgElement.style.display = "none";
-  errorMsgElement.textContent = ""; 
+  errorMsgElement.textContent = "";
 
   let isActiveClient = document.getElementById("activeOrNo").checked;
   let nameClient = document.getElementById("name").value.trim();
   let emailClient = document.getElementById("email").value.trim();
-  let dateClient = document.getElementById("dateOfBirth").value.trim(); 
+  let dateClient = document.getElementById("dateOfBirth").value.trim();
   let genderClient = document.getElementById("gender").value.trim();
   let phoneClient = document.getElementById("phone").value.trim();
   let addressClient = document.getElementById("address").value.trim();
   let othersInfoClient = document.getElementById("othersInfo").value.trim();
   let interestsClient = document.getElementById("interests").value.trim();
-  let feelingsClient = document.getElementById("feelings").value.trim(); 
+  let feelingsClient = document.getElementById("feelings").value.trim();
   let valuesClient = document.getElementById("values").value.trim();
 
   let errors = [];
@@ -63,7 +86,7 @@ function saveClientForm() {
     errors.push("O formato do e-mail é inválido.");
   }
 
-  const cleanPhoneClient = phoneClient.replace(/\D/g, ''); 
+  const cleanPhoneClient = phoneClient.replace(/\D/g, '');
   if (phoneClient && cleanPhoneClient.length < 10) {
     errors.push("O telefone deve conter pelo menos 10 dígitos (incluindo DDD).");
   }
@@ -71,8 +94,8 @@ function saveClientForm() {
   if (dateClient) {
     const inputDate = new Date(dateClient);
     const today = new Date();
-    today.setHours(0, 0, 0, 0); 
-    
+    today.setHours(0, 0, 0, 0);
+
     if (inputDate >= today) {
       errors.push("A data de nascimento deve ser anterior à data atual.");
     }
@@ -81,16 +104,16 @@ function saveClientForm() {
   if (errors.length > 0) {
     errorMsgElement.textContent = errors.join(" ");
     errorMsgElement.style.display = "block";
-    return; 
+    return;
   }
 
- let newClient = {
+  let newClient = {
     isActive: isActiveClient,
     name: nameClient,
     email: emailClient,
     dateOfBirth: dateClient,
     gender: genderClient,
-    phone: cleanPhoneClient, 
+    phone: cleanPhoneClient,
     address: addressClient,
     othersInfo: othersInfoClient,
     interests: interestsClient,
@@ -107,7 +130,6 @@ function saveClientForm() {
     }
     addClient(newClient);
   } catch (error) {
-    console.error("Erro ao salvar cliente:", error);
     errorMsgElement.textContent = "Não foi possível salvar o cadastro. Verifique os dados salvos neste navegador.";
     errorMsgElement.style.display = "block";
     return;
@@ -129,4 +151,4 @@ function saveClientForm() {
 
 
 document.getElementById("save-client").addEventListener("click", saveClientForm);
-loadClientForEditing();
+loadClientData();

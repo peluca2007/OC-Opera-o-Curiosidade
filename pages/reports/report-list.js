@@ -5,6 +5,9 @@ import { renderClientTable, renderTableMessage } from "../../shared/ui/client-ta
 const tbody = document.querySelector("#clients-list tbody");
 const title = document.getElementById("report-title-description");
 const reportType = new URLSearchParams(window.location.search).get("report");
+import { showLoggedUserName } from "../../shared/components/user-name.js";
+
+showLoggedUserName();
 
 const reports = {
   all: { title: "de Clientes", filter: () => true },
@@ -23,7 +26,6 @@ if (!report) {
     const clients = getClients().filter(report.filter);
     renderClientTable(tbody, clients, "Nenhum cliente encontrado para este filtro.");
   } catch (error) {
-    console.error("Erro na lista do relatório:", error);
     renderTableMessage(tbody, "Não foi possível carregar os cadastros.");
   }
 }

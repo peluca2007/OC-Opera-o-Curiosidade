@@ -1,5 +1,8 @@
 import { getClients, deleteClient} from "../../shared/services/client-service.js";
 import { renderClientTable, renderTableMessage } from "../../shared/ui/client-table.js";
+import { showLoggedUserName } from "../../shared/components/user-name.js";
+
+showLoggedUserName();
 
 const tbody = document.querySelector("#clients-registrations tbody");
 const dialog = document.getElementById("client-actions");
@@ -22,7 +25,6 @@ function loadClientTable() {
       });
     }
   } catch (error) {
-    console.error("Erro na listagem:", error);
     renderTableMessage(tbody, "Não foi possível carregar os clientes.");
   }
 }
@@ -55,6 +57,12 @@ document.getElementById("edit-client").addEventListener("click", () => {
 });
 
 
+document.getElementById("view-client").addEventListener("click", () => {
+  if (!selectedClient) return;
+  window.location.href = "client-form.html?" + "id=view&client_id=" + encodeURIComponent(selectedClient.id);
+});
+
+
 
 document.getElementById("close-client-actions").addEventListener("click", () => {
   dialog.close();
@@ -71,9 +79,11 @@ document.getElementById("delete-client").addEventListener("click", () => {
     dialog.close();
     loadClientTable();
   } catch (error) {
-    console.error("Erro ao excluir cliente:", error);
+    actionMessage.style.display = "block";
+    actionMessage.textContent = "Não foi possível excluir o cliente.";
   }
 });
+
 
 loadClientTable();
   

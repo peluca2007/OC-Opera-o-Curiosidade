@@ -108,6 +108,13 @@
   }
 }
 
+
+
+tbody tr:hover {
+  background-color: #edf5ec;
+}
+
+
 @media (max-width: 873px) {
 
 

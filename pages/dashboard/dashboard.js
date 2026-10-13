@@ -1,11 +1,15 @@
 import { getClients } from "../../shared/services/client-service.js";
 import { isRegisteredThisMonth } from "../../shared/utils/client-filters.js";
 import { renderClientTable, renderTableMessage } from "../../shared/ui/client-table.js";
+import { showLoggedUserName } from "../../shared/components/user-name.js";
+
+showLoggedUserName();
 
 const tbody = document.querySelector("#last-registrations tbody");
 
 try {
-  const clients = getClients();
+  const clients = getClients().reverse();
+
   document.querySelector("#total-registrations p").textContent = clients.length;
   document.querySelector("#registrations-pending p").textContent =
     clients.filter(client => !client.isActive).length;
@@ -14,8 +18,10 @@ try {
 
   renderClientTable(tbody, clients);
 } catch (error) {
-  console.error("Erro no dashboard:", error);
   ["total-registrations", "registrations-pending", "registrations-month"]
     .forEach(id => document.querySelector("#" + id + " p").textContent = "—");
   renderTableMessage(tbody, "Não foi possível carregar os cadastros.");
 }
+
+
+

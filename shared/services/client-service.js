@@ -27,7 +27,6 @@ export function saveClients(clients) {
 }
 
 export function addClient(client) {
-
   const clients = getClients();
   client.id = crypto.randomUUID();
   clients.push(client);
